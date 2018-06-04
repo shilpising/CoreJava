@@ -44,12 +44,14 @@ class Producer implements Runnable{
 		this.obj=obj;
 	}
 	 public void run() {
+		 System.out.println("inside producer run"+Thread.currentThread().getName());
 		 obj.produce("A");
 		 obj.produce("B");
 		 obj.produce("C");
 		 obj.produce("D");
 		 try {
 			 Thread.sleep(1000);
+			 obj.produce("E");
 		 }catch(InterruptedException e) {
 			 e.printStackTrace();
 		 }
@@ -62,6 +64,7 @@ class Consumer implements Runnable{
 		this.obj=obj;
 	}
 	public void run() {
+		 System.out.println("inside consumer run"+Thread.currentThread().getName());
 		 obj.consume();
 		 obj.consume();
 		 obj.consume();
@@ -81,11 +84,15 @@ public class ProducerConsumer{
 		Message m=new Message();
 		Producer p=new Producer(m);
 		Consumer c=new Consumer(m);
-		Thread t1=new Thread(p);
-		Thread t2=new Thread(c);
+		Thread t1=new Thread(p,"producer");
+		Thread t2=new Thread(c,"consumer1");
+		Thread t3=new Thread(c,"consumer2");
 		t1.start();
 		t2.start();
-
+		t3.start();
+		//t3.start(); java.lang.IllegalThreadStateException
+		//t3.run(); //valid //this will call current thread run irrespective of any thread calling.
+		
 	}
 
 }
