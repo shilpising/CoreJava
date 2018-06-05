@@ -22,13 +22,13 @@ public class DeadLockDemoThread extends Thread {
 	public static void main(String[] args) {
 		DeadLockDemoThread[] threads=new DeadLockDemoThread[7];
 		//Thread[] threads = new Thread[7];
-		 try{
+		// try{
 		 for (int i = 0; i < threads.length; i++) {
 		      threads[i] = new DeadLockDemoThread("Thread : "+i);
 
 		      threads[i].start();
 			}
-		}catch(Exception e){System.out.println(e);}
+		//}catch(Exception e){System.out.println(e);}
 		 }
 
 }

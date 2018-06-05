@@ -9,7 +9,7 @@ public class Singleton {
 		name="shilpi";
 	}
 	public static Singleton getInstance() {
-		if(_instance==null) {
+		if(_instance==null) {//race condition if two threads sees _instance= null if not valatile 
 			System.out.println("inside new object creation");
 			_instance=new Singleton();
 		}
