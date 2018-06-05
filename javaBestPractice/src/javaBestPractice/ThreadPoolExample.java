@@ -22,7 +22,8 @@ public class ThreadPoolExample {
 			threadPool.submit(new Task(i));
 			threadPool.execute(new Task(i));
 		}
-		
+		System.out.println("Main thread running");
+		threadPool.shutdown();
 
 	}
 
