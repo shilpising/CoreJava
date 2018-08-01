@@ -1,7 +1,7 @@
 package javaBestPractice;
 
 
-import io.javabrains.Access;
+//import io.javabrains.Access;
 /* Note: Identify the error, rectify it and get the output. */
 
 public class AccessSpecifierDemo extends Access {

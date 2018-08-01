@@ -12,7 +12,7 @@ public class Palindrome {
 
 	private static boolean checkIntegerPalindrome(int i) {
 		
-		return null;
+		return true;
 	}
 
 }
