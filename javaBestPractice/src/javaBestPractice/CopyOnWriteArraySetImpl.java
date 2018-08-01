@@ -1,12 +1,12 @@
 package javaBestPractice;
 
 import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
 
-public class CopyOnWriteArrayListImpl {
+public class CopyOnWriteArraySetImpl {
 
 	public static void main(String[] args) {
-		CopyOnWriteArrayList<String> arrList=new CopyOnWriteArrayList<String>();
+		CopyOnWriteArraySet<String> arrList=new CopyOnWriteArraySet<String>();
 		arrList.add("atharva");
 		arrList.add("shilpi");
 		arrList.add("avi");
@@ -16,7 +16,7 @@ public class CopyOnWriteArrayListImpl {
 		while(itr.hasNext()) {
 			System.out.printf("Read from CopyOnWriteArrayList : %s %n", itr.next());
             arrList.remove("vishu"); 
-            itr.remove();//not supported in CopyOnWriteArrayList in Java
+            //itr.remove();//not supported in CopyOnWriteArrayList in Java
 		}
 		System.out.println("====================\n");
 		Iterator<String> itr1=arrList.iterator();
