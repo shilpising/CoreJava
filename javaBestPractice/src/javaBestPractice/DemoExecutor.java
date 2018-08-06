@@ -36,8 +36,8 @@ public class DemoExecutor
         Integer threadCounter = 0;
         BlockingQueue<Runnable> blockingQueue = new ArrayBlockingQueue<Runnable>(50);
  
-        CustomThreadPoolExecutor executor = new CustomThreadPoolExecutor(10,
-                                            20, 5000, TimeUnit.MILLISECONDS, blockingQueue);
+        CustomThreadPoolExecutor executor = new CustomThreadPoolExecutor(2,
+                                            10, 5000, TimeUnit.MILLISECONDS, blockingQueue);
  
         executor.setRejectedExecutionHandler(new RejectedExecutionHandler() {
             @Override
