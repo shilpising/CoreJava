@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Set;
 
 public class FindDuplicate {
-
 	public static void main(String[] args) {
 		List<String> strings = new ArrayList<String>();
 		strings.add("stack");
