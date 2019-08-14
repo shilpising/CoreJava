@@ -7,14 +7,21 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-class Color {
+class Color implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -314920153714316152L;
+	//private static final long serialVersionUID = -314920153714316152L;
 	String type;
 	String color;
+	/*int size;
 	
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}*/
 	public Color() {
 		System.out.println("inside super");
 	}
@@ -46,7 +53,7 @@ class PaperColor extends Color implements Serializable{
 		System.out.println("inside child");
 	}
 	public PaperColor(String col, String type,boolean isPaper) {
-		super(col,type);
+		super(type, col);
 		System.out.println("inside child1");
 		this.isPaper = isPaper;
 	}
@@ -63,7 +70,7 @@ public class SerializationSuperClassExample {
 
 	public static void main(String[] args) throws IOException {
 		
-		PaperColor col=new PaperColor("A4","Red",true);
+		/*PaperColor col=new PaperColor("A4","Red",true);
 		
 		//// Serialization code
 		ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream("paperCol.ser"));
@@ -87,7 +94,19 @@ public class SerializationSuperClassExample {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		*/
+	//// De-Serialization code
+				ObjectInputStream tin=new ObjectInputStream(new FileInputStream("testPaper.ser"));
+				try {
+					TestPaper testPaperread=(TestPaper)tin.readObject();
+					System.out.println("\n\n De-Serialization code");
+				//System.out.println("paperIn Object:   "+paperIn.getColor()+" , "+paperIn.getType()+" , "+paperIn.getTestPaper());
+					System.out.println("paperIn Object:   "+testPaperread.getCount()+" , "+ testPaperread.getPaper()+" "+testPaperread.getNum());
+					tin.close();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		
 	}
 

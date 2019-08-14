@@ -13,6 +13,7 @@ public class Arrays2 {
 		Integer[] array2 ={3,1,2,4,5,6,7,8};
 		List<Integer> list1=Arrays.asList(array1);
 		List<Integer> list2=Arrays.asList(array2);
+		//list2.add(5);
 		Arrays.sort(array1);
 		List<Integer> list3=Arrays.asList(array1);
 		Iterator<Integer> itr = list3.iterator();

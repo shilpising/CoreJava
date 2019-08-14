@@ -14,14 +14,14 @@ public class CopyOnWriteArraySetImpl {
 		
 		Iterator<String> itr=arrList.iterator();
 		while(itr.hasNext()) {
-			System.out.printf("Read from CopyOnWriteArrayList : %s %n", itr.next());
+			System.out.printf("Read from CopyOnWriteArraySet : %s %n", itr.next());
             arrList.remove("vishu"); 
             //itr.remove();//not supported in CopyOnWriteArrayList in Java
 		}
 		System.out.println("====================\n");
 		Iterator<String> itr1=arrList.iterator();
 		while(itr1.hasNext()) {
-			System.out.printf("Read from CopyOnWriteArrayList : %s %n", itr1.next());
+			System.out.printf("Read from CopyOnWriteArraySet : %s %n", itr1.next());
            
 		}
 	}

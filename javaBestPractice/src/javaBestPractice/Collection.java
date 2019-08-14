@@ -16,6 +16,7 @@ public class Collection {
 		System.out.println("Elements in searchlist"+searchList);
 		list.set(2, "singh");
 		System.out.println("Elements in list"+list);
+		//list.add(2, "singh");
 		Collections.copy(list, subList);
 		System.out.println("Elements in list"+list);
 		Collections.copy(list, subList);

@@ -12,19 +12,20 @@ abstract class Student1{
 
 class PerceptionUser1 extends Student1{
 	String password;
-	PerceptionUser1(){
+	private PerceptionUser1(){
 		System.out.println("PerceptionUser Base Constructor");
 	}
 	PerceptionUser1(String name, String pwd){
-		super(name);
+		//super(name);
+		this();
 		System.out.println("PerceptionUser parameter constructor");
 	}
 }
 class ConstructorDemo{
 	public static void main(String args[]){
 	//	Student s = new Student();
-		Student1 s1 = new PerceptionUser1();
-		PerceptionUser1 p=new PerceptionUser1();
+		//Student1 s1 = new PerceptionUser1();
+		//PerceptionUser1 p=new PerceptionUser1();
 		PerceptionUser1 p1=new PerceptionUser1("jack","infy@123");
 	}
 }

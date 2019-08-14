@@ -1,46 +1,40 @@
 package javaBestPractice;
 
-public class ThreadDemo {
+public class ThreadDemo{
+	public static void main(String[] args) 
+    { 
+		ThreadDemoWorker demo = new ThreadDemoWorker(); 
+        Thread a1 = new Thread(demo,"Thread1"); 
+        Thread a2 = new Thread(demo,"Thread2"); 
+        a1.start(); 
+        a2.start(); 
+    } 
+    
+} 
+class ThreadDemoWorker  implements Runnable{
 	
-	public synchronized void  show(){
-		System.out.println("Inside show");
-	}
-	public synchronized void  display(){
-		System.out.println("Inside display");
-	}
-	public void  output(){
-		System.out.println("Inside output");
-	}
-
-	public static void main(String[] args) throws InterruptedException {
-		final ThreadDemo t = new ThreadDemo();
-        Thread t1 = new Thread() { 
-        			public void run() { 
-        				System.out.println("Thread ---"+Thread.currentThread().getName());
-        				t.show();
-        				try {
-							Thread.sleep(5000);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-        				 } };
-        Thread t2 = new Thread() { public void run() {
-        							t.output();
-						        	try {
-										Thread.sleep(1000);
-									} catch (InterruptedException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									System.out.println("Thread ---"+Thread.currentThread().getName());
-									t.display(); 
-						        	} };
-
-        t1.start();
-        t2.start();
-        System.out.println(t2.getState());
-
-	}
-
+	private static int staticcount = 1; 
+	private static int count = 1; 
+	public static  void doSomethingStatic() 
+    { 
+		synchronized(ThreadDemoWorker.class) {
+		System.out.println("inside static"+Thread.currentThread());
+        for (int i = 0; i < 2; i++) 
+        	 System.out.println(staticcount++); 
+		}
+    } 
+    public void doSomething() 
+    { 
+    	synchronized(this) {
+    	System.out.println("inside non static"+Thread.currentThread());
+        for (int i = 0; i < 2; i++) 
+            System.out.println(count++); 
+    	}
+    } 
+        
+    public void run() 
+    { 
+        doSomething(); 
+        doSomethingStatic();
+    } 
 }

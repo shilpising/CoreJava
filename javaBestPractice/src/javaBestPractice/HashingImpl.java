@@ -1,6 +1,8 @@
 package javaBestPractice;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 class Employee{
 	
@@ -53,6 +55,21 @@ public class HashingImpl {
 		
 		System.out.println("Employee list--"+empSet);
 		System.out.println("Employee list--"+empSet.size());
+		Employee obj1=new Employee(100);
+		Employee obj3=new Employee(100);
+		Object obj2=new Integer(131);
+		Map<Object,String> map=new HashMap<>();
+		map.put(obj1, "abc");
+		map.put(obj2, "def");
+		map.put(obj3, "ghi");
+		System.out.println("map list--"+map.get(obj1));
+		System.out.println("map list--"+map.get(obj2));
+		System.out.println("map list--"+map.get(obj3));
+		System.out.println("map list--"+map.size());
+		System.out.println(obj1.hashCode()+"  "+obj2.hashCode()+"  "+obj3.hashCode());
+		System.out.println((obj1==obj2)+" "+(obj1.equals(obj2)));
+		System.out.println((obj1==obj3)+" "+(obj1.equals(obj3)));
+		System.out.println((obj3==obj2)+" "+(obj3.equals(obj2)));
 	}
 
 }

@@ -2,8 +2,8 @@ package javaBestPractice;
 
 class Access
 {
-	protected int a;
-	public int d;
+ int a;
+	protected int d;
 }
 
 class AccessSpec

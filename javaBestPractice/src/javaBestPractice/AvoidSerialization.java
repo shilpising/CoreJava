@@ -8,7 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-class Animal implements Serializable{
+class Animal {
 
 	/**
 	 * 
@@ -19,6 +19,8 @@ class Animal implements Serializable{
 		super();
 		this.type = type;
 	}
+	public Animal() {
+	}
 	public int getType() {
 		return type;
 	}
@@ -28,7 +30,7 @@ class Animal implements Serializable{
 	
 }
 
-class Cat extends Animal {
+class Cat extends Animal implements Serializable {
 	String name;
 	
 	
@@ -47,7 +49,7 @@ class Cat extends Animal {
 		this.name = name;
 	}
 	
-	private void  writeObject(ObjectOutputStream aOutputStream) throws ClassNotFoundException, IOException{
+/*	private void  writeObject(ObjectOutputStream aOutputStream) throws ClassNotFoundException, IOException{
 		System.out.println("inside wite");
 		throw new NotSerializableException();
 	}
@@ -56,7 +58,7 @@ class Cat extends Animal {
 		//return this;
 		throw new NotSerializableException();
 		
-	}
+	}*/
 	
 }
 public class AvoidSerialization {

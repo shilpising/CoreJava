@@ -1,10 +1,10 @@
 package javaBestPractice;
 
 class Animal1{
-	// public void speak() throws NoSuchFieldException{
+	public void speak() throws NoSuchFieldException{
 	//public void speak() throws NullPointerException{
 	//public void speak() throws Exception{
-	public void speak(){
+	//public void speak(){
 			System.out.println("I am an  Animal");
 	}
 	void run(){

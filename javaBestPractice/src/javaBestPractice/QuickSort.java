@@ -5,7 +5,8 @@ import java.util.Arrays;
 public class QuickSort {
 
 	public static void main(String[] args) {
-		Integer array[]= {12,13,24,10,3,6,90,70};
+		Integer array[]={4,3,1,2};// {12,13,24,10,3,6,90,70};
+		int swaps=0;
 		// Verify un sorted array
         System.out.println(Arrays.toString(array));
         sort(array,0,(array.length-1));
@@ -18,6 +19,7 @@ public class QuickSort {
 		int pivot=array[middle];
 		int i=low; 
 		int j=high;
+		int swaps=0;
 		while(i<=j){
 			
 			while(array[i]<pivot) {
@@ -33,6 +35,7 @@ public class QuickSort {
 				array[j]=temp;
 				i++;
 				j--;
+				++swaps;
 				}
 		}
 		if(low<j) {
@@ -41,7 +44,7 @@ public class QuickSort {
 		if(high>i) {
 			sort(array,i,high);
 		}
-		
+		System.out.println(swaps);
 	}
-
+	
 }

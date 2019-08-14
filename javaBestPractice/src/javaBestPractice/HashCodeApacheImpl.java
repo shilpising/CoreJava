@@ -54,6 +54,7 @@ public class HashCodeApacheImpl {
 		
 		System.out.println("Employee list--"+empSet);
 		System.out.println("Employee list--"+empSet.size());
+		System.out.println("abc".hashCode()+"  "+"bca".hashCode());
 	}
 
 }

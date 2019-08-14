@@ -24,6 +24,11 @@ public class HashMapSortKeys {
 	           System.out.println(" - " + (String)hmap.get(key));
          }
          
+         for(Map.Entry<Integer,String> entry:hmap.entrySet()){
+        	 System.out.println("Key = " + entry.getKey() + 
+                     ", Value = " + entry.getValue()); 
+        	// hmap.remove(entry.getKey());
+         }
          Map<Integer,String> m2=new TreeMap<Integer,String>(hmap);
          Set set2=m2.entrySet();
          Iterator iterator=set2.iterator();
@@ -31,6 +36,13 @@ public class HashMapSortKeys {
         	 Map.Entry me2 = (Map.Entry)iterator.next();
              System.out.print(me2.getKey() + ": ");
              System.out.println(me2.getValue());
+             iterator.remove();
+         }
+         
+         for(Map.Entry<Integer,String> entry:m2.entrySet()){
+        	 System.out.println("Key = " + entry.getKey() + 
+                     ", Value = " + entry.getValue()); 
+        	// hmap.remove(entry.getKey());
          }
 	 }
 

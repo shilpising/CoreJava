@@ -13,10 +13,13 @@ public class FirstLastLinkedList {
 		list.add(140);
 		list.add(150);
 		list.add(120);
-		
+		System.out.println("list---"+list);
+		list.add(6,200);
+		System.out.println("list---"+list);
+		list.set(3,201);
 		System.out.println("list---"+list);
 		System.out.println("First element--"+list.getFirst());
-		System.out.println("First element--"+list.getLast());
+		//System.out.println("First element--"+list.getLast());
 		
 		//Adding element at first and last position of Linked List
 		list.addFirst(5);

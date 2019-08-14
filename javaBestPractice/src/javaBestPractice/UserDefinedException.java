@@ -19,8 +19,20 @@ public class UserDefinedException {
 				throw new UserException("divide by zero");
 			}
 			System.out.println(10/0);
-		}catch(Exception e) {
-			e.printStackTrace();
+		}catch(UserException e) {
+			try {
+				throw new ArithmeticException("divide by zero inside catch");
+			} catch (ArithmeticException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}finally {
+			try {
+				throw new Exception("divide by zero inside finally");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 				
 

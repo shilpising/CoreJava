@@ -7,12 +7,37 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-class TestPaper{
+class TestPaper implements Serializable{
+	/**
+	 * 
+	 */
+	//private static final long serialVersionUID = -6481538364634724925L;
+	/**
+	 * 
+	 */
+	//private static final long serialVersionUID = 5;
+	
 	int count;
+	String paper;
+	static int num;
+
+	public static int getNum() {
+		return num;
+	}
+
+	public String getPaper() {
+		return paper;
+	}
+
+	public void setPaper(String paper) {
+		this.paper = paper;
+	}
 
 	public TestPaper(int count) {
 		super();
 		this.count = count;
+		paper="shilpi";
+		num=7;
 	}
 
 	public int getCount() {
@@ -30,7 +55,7 @@ class Paper implements Serializable{
 	private static final long serialVersionUID = -314920153714316152L;
 	String type;
 	String color;
-	//TestPaper testPaper;
+	TestPaper testPaper;
 	transient boolean wet=false;
 	static boolean plastic=false;
 	
@@ -41,7 +66,7 @@ class Paper implements Serializable{
 		super();
 		this.type = type;
 		this.color = color;
-		//testPaper=new TestPaper(count);
+		testPaper=new TestPaper(count);
 		
 	}
 	public Paper(String type, String color,int count, boolean wet) {
@@ -63,12 +88,12 @@ class Paper implements Serializable{
 	public void setColor(String color) {
 		this.color = color;
 	}
-	/*public int getTestPaper() {
+	public int getTestPaper() {
 		return testPaper.getCount();
 	}
 	public void setTestPaper(TestPaper testPaper) {
 		this.testPaper = testPaper;
-	}*/
+	}
 	public static boolean isPlastic() {
 		return plastic;
 	}
@@ -90,31 +115,47 @@ public class SerializationExample {
 
 	public static void main(String[] args) throws IOException {
 		
-		Paper col=new Paper("A4","Red",2,true);
-		
+		/*Paper col=new Paper("A4","Red",2,true);
+		Paper col1=new Paper("A4","Red",2);
 		//// Serialization code
 		ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream("paper.ser"));
 		try {
-			out.writeObject(col);
+			out.writeObject(col1);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			out.close();
 		}
-		//System.out.println("Col Object:   "+col.getColor()+" , "+col.getType()+" , "+col.getTestPaper());
-		System.out.println("Col Object:   "+col.getColor()+" , "+col.getType()+" , "+col.isWet()+" , "+col.isPlastic());
+		System.out.println("Col1 Object:   "+col1.getColor()+" , "+col1.getType()+" , "+col1.getTestPaper());
+		//System.out.println("Col Object:   "+col.getColor()+" , "+col.getType()+" , "+col.isWet()+" , "+col.isPlastic());
 	//// De-Serialization code
 		ObjectInputStream in=new ObjectInputStream(new FileInputStream("paper.ser"));
 		try {
 			Paper paperIn=(Paper)in.readObject();
-			//System.out.println("paperIn Object:   "+paperIn.getColor()+" , "+paperIn.getType()+" , "+paperIn.getTestPaper());
-			System.out.println("paperIn Object:   "+paperIn.getColor()+" , "+paperIn.getType()+" , "+paperIn.isWet()+" , "+paperIn.isPlastic());
+			System.out.println("\n\n De-Serialization code");
+		//System.out.println("paperIn Object:   "+paperIn.getColor()+" , "+paperIn.getType()+" , "+paperIn.getTestPaper());
+			System.out.println("paperIn Object:   "+paperIn.getColor()+" , "+paperIn.getType()+" , "+paperIn.isWet()+
+					" , "+paperIn.isPlastic()+" , "+paperIn.getTestPaper());
 			in.close();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
+		
+		/*TestPaper testPaper=new TestPaper(55);
+	//// Serialization code
+			ObjectOutputStream tout=new ObjectOutputStream(new FileOutputStream("testPaper.ser"));
+			try {
+				tout.writeObject(testPaper);
+				System.out.println("paperIn Object:   "+testPaper.getCount()+" , "+ testPaper.getPaper());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				tout.close();
+			}*/
+			
 		
 		
 	}
